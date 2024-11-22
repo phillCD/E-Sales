@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./E-Sales
+    ports:
+      - "8080:8080"
+    container_name: backend-container
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./E-Sales Front-End/e-sales-frontend
+    ports:
+      - "3000:3000"
+      - "5173:5173"
+    container_name: frontend-container
+    depends_on:
+      - backend
+
+  database:
+    image: postgres:17
+    container_name: database-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: esales
+    ports:
+      - "5432:5432"
