@@ -1,9 +1,11 @@
 package com.example.E_Sales.buyer;
 
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.io.IOException;
 import java.util.List;
 
@@ -14,8 +16,12 @@ public class BuyerController {
     private BuyerService service;
 
     @GetMapping
-    public List<BuyerRepresentation.BuyerResponse> getAllBuyers() {
-        return service.getAllBuyers().stream().map(BuyerRepresentation.BuyerResponse::fromEntity).toList();
+    public Page<BuyerRepresentation.BuyerResponse> getAllBuyers(
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "20") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        return service.getAllBuyers(pageable).map(BuyerRepresentation.BuyerResponse::fromEntity);
     }
 
     @GetMapping("{id}")

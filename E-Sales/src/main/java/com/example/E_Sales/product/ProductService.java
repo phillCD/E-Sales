@@ -2,6 +2,8 @@ package com.example.E_Sales.product;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +15,12 @@ public class ProductService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<Product> getAllProducts() {
-        return repository.findAll();
+    public Page<Product> getAllProducts(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+
+    public List<Product> getProductsByName(String name) {
+        return repository.findByNameContainingIgnoreCase(name);
     }
 
     public Product getProductById(Long id) {

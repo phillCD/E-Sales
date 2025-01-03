@@ -23,20 +23,20 @@ const Navbar: React.FC = () => {
                 </a>
                 <div className="w-8"></div> {/* Placeholder to balance the flex layout */}
             </div>
-            <div className={`transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 bg-gray-700 p-4 absolute top-15 left-0 h-full w-64`}>
+            <div className={`transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 bg-gray-700 p-4 absolute top-15 left-0 h-full w-64 opacity-90`}>
                 <ul className="space-y-2">
                     <li className="hover:bg-gray-600 p-2 rounded cursor-pointer" onClick={() => toggleSubMenu('produtos')}>
                         Produtos
                         {subMenuOpen['produtos'] && (
                             <ul className="pl-4 mt-2 space-y-2">
                                 <li className="hover:bg-gray-500 p-2 rounded">
-                                    <a href="/cadastrar-produto">
-                                        Cadastrar Produtos
+                                    <a href="/listar-produtos">
+                                        Ver Produtos
                                     </a>
                                 </li>
                                 <li className="hover:bg-gray-500 p-2 rounded">
-                                    <a href="/ver-produto/1">
-                                        Ver Produtos
+                                    <a href="/cadastrar-produto">
+                                        Cadastrar Produtos
                                     </a>
                                 </li>
                                 <li className="hover:bg-gray-500 p-2 rounded">
@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
                         {subMenuOpen['compradores'] && (
                             <ul className="pl-4 mt-2 space-y-2">
                                 <li className="hover:bg-gray-500 p-2 rounded">
-                                    <a href="/ver-comprador/1">
+                                    <a href="/listar-compradores">
                                         Ver Compradores
                                     </a>
                                 </li>
@@ -64,25 +64,16 @@ const Navbar: React.FC = () => {
                             </ul>
                         )}
                     </li>
-                    <li className="hover:bg-gray-600 p-2 rounded cursor-pointer" onClick={() => toggleSubMenu('fichas')}>
-                        Fichas
-                        {subMenuOpen['fichas'] && (
-                            <ul className="pl-4 mt-2 space-y-2">
-                                <li className="hover:bg-gray-500 p-2 rounded">Sub-Ficha 1</li>
-                                <li className="hover:bg-gray-500 p-2 rounded">Sub-Ficha 2</li>
-                            </ul>
-                        )}
-                    </li>
                     <li className="hover:bg-gray-600 p-2 rounded cursor-pointer" onClick={() => toggleSubMenu('compras')}>
-                        Compras
+                        Vendas
                         {subMenuOpen['compras'] && (
                             <ul className="pl-4 mt-2 space-y-2">
                                 <li className="hover:bg-gray-500 p-2 rounded">
                                     <a href="/cadastrar-compra">
-                                        Cadastrar Compras
+                                        Cadastrar Vendas
                                     </a>
                                 </li>
-                                <li className="hover:bg-gray-500 p-2 rounded">Sub-Compras 2</li>
+                                <li className="hover:bg-gray-500 p-2 rounded">Sub-Vendas 2</li>
                             </ul>
                         )}
                     </li>

@@ -19,19 +19,20 @@ function GetProduct() {
                 const productData = await productResponse.json();
                 setProductData(productData);
 
-                const boxResponse = await fetch(`http://localhost:8080/product-box/${id}`);
+                const boxResponse = await fetch(`http://localhost:8080/product-box/product/${id}`);
                 if (!boxResponse.ok) {
                     throw new Error('Erro ao obter caixa');
                 }
                 const boxData = await boxResponse.json();
                 setBoxData(boxData);
 
-                const displayResponse = await fetch(`http://localhost:8080/product-display/${id}`);
-                if (!displayResponse.ok) {
-                    throw new Error('Erro ao obter display');
+                const displayResponse = await fetch(`http://localhost:8080/product-display/product/${id}`);
+                if (displayResponse.status === 200) {
+                    const displayData = await displayResponse.json();
+                    setDisplayData(displayData);
+                } else{
+                    setDisplayData(null);
                 }
-                const displayData = await displayResponse.json();
-                setDisplayData(displayData);
             } catch (error) {
                 setErrorMessage('Erro ao obter dados');
                 setProductData(null);
@@ -54,12 +55,12 @@ function GetProduct() {
                     </h1>
                     <div>
                         {errorMessage && (
-                            <p className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                            <p className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
                                 {errorMessage}
                             </p>
                         )}
                         {productData && (
-                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
                                 <p><strong>Nome:</strong> {productData.name}</p>
                                 <p><strong>Código de Barras:</strong> {productData.barcode}</p>
                                 <p><strong>Altura:</strong> {productData.height}</p>
@@ -70,7 +71,7 @@ function GetProduct() {
                             </div>
                         )}
                         {boxData && (
-                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
                                 <p><strong>Código de Barras da Caixa:</strong> {boxData.box_barcode}</p>
                                 <p><strong>Altura da Caixa:</strong> {boxData.box_height}</p>
                                 <p><strong>Largura da Caixa:</strong> {boxData.box_width}</p>
@@ -80,7 +81,7 @@ function GetProduct() {
                             </div>
                         )}
                         {displayData && (
-                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
                                 <p><strong>Código de Barras do Display:</strong> {displayData.display_barcode}</p>
                                 <p><strong>Altura do Display:</strong> {displayData.display_height}</p>
                                 <p><strong>Largura do Display:</strong> {displayData.display_width}</p>

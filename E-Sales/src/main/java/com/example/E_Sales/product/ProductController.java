@@ -2,6 +2,9 @@ package com.example.E_Sales.product;
 
 import lombok.AllArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +23,16 @@ public class ProductController {
     private ProductService service;
 
     @GetMapping
-    public List<ProductRepresentation.ProductResponse> getAllProducts() {
-        return service.getAllProducts().stream().map(ProductRepresentation.ProductResponse::fromEntity).toList();
+    public Page<ProductRepresentation.ProductResponse> getAllProducts(
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "20") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return service.getAllProducts(pageable).map(ProductRepresentation.ProductResponse::fromEntity);
+    }
+
+    @GetMapping("search")
+    public List<ProductRepresentation.ProductResponse> getProductsByName(@RequestParam String name) {
+        return service.getProductsByName(name).stream().map(ProductRepresentation.ProductResponse::fromEntity).toList();
     }
 
     @GetMapping("{id}")

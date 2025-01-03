@@ -8,7 +8,7 @@ import os
 def run_some_function(data):
     encoded_files = []
     # Process the data received from the Flask API and return a result
-    for i in range(len(data['selectedProductIds'])):
+    for i in range(len(data['product'])):
         base64_data = data['buyer']['pythonScript']
         decoded_data = base64.b64decode(base64_data)
         with tempfile.NamedTemporaryFile(delete=False, suffix='.xlsx') as temp_file:
@@ -18,7 +18,7 @@ def run_some_function(data):
         wb = openpyxl.load_workbook(temp_file_path)
         sheet = wb.active
 
-        product_id = data['selectedProductIds'][i]['product']['id']
+        product_id = data['product'][i]['id']
         java_box_url = f'http://localhost:8080/product-box/product/{product_id}'
         java_display_url = f'http://localhost:8080/product-display/product/{product_id}'
         response_box = requests.get(java_box_url)

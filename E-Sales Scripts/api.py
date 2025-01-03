@@ -31,6 +31,17 @@ def import_product():
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 400
 
+@app.route('/import-product-display', methods=['POST'])
+def import_product_display():
+    try:
+        data = request.json # Receive JSON from the request
+        # You can now access data from the JSON, e.g., data['param']
+        result = import_script_no_display.import_product_display(data)  # Run the specific function in your script
+
+        return jsonify({'status': 'success', 'files': result}), 200
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)

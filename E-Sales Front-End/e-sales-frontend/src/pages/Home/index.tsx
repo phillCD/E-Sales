@@ -36,7 +36,7 @@ const Home = () => {
                                 <h2 className="text-slate-800 font-bold mb-4">Ver Comprador</h2>
                                 <p className="text-slate-600 mb-4">Veja os compradores no sistema.</p>
                                 <a 
-                                    href="/ver-comprador" 
+                                    href="/listar-compradores" 
                                     className="bg-blue-500 text-white px-4 py-2 rounded-sm hover:bg-blue-600"
                                 >
                                     Ver Compradores
@@ -46,7 +46,7 @@ const Home = () => {
                                 <h2 className="text-slate-800 font-bold mb-4">Ver Produto</h2>
                                 <p className="text-slate-600 mb-4">Veja os produtos no sistema.</p>
                                 <a 
-                                    href="/ver-produto" 
+                                    href="/listar-produtos" 
                                     className="bg-blue-500 text-white px-4 py-2 rounded-sm hover:bg-blue-600"
                                 >
                                     Ver Produtos
