@@ -6,6 +6,7 @@ import GetBuyer from './pages/VerComprador';
 import AddProduct from './pages/CadastrarProduto';
 import GetProduct from './pages/VerProduto';
 import CreateSale from './pages/CadastrarCompra';
+import UploadXlsx from './pages/ImportarProduto';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path='/cadastrar-produto' element={<AddProduct />}/>
           <Route path='/ver-produto/:id' element={<GetProduct />}/>
           <Route path='/cadastrar-compra' element={<CreateSale />} />
+          <Route path='/importar-produto' element={<UploadXlsx />}/>
         </Routes>
       </BrowserRouter>
     </>

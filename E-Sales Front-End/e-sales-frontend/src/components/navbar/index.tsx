@@ -39,6 +39,11 @@ const Navbar: React.FC = () => {
                                         Ver Produtos
                                     </a>
                                 </li>
+                                <li className="hover:bg-gray-500 p-2 rounded">
+                                    <a href="/importar-produto">
+                                        Importar Produtos
+                                    </a>
+                                </li>
                             </ul>
                         )}
                     </li>

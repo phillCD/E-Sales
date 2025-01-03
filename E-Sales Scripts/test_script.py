@@ -25,7 +25,8 @@ def run_some_function(data):
         response_display = requests.get(java_display_url)
 
         box = response_box.json()
-        display = response_display.json()
+        if response_display.status_code == 200:
+            display = response_display.json()
 
         sheet['H5'] = box['product']['name']
         sheet['O8'] = box['product']['barcode']
@@ -45,12 +46,13 @@ def run_some_function(data):
         sheet['F22'] = box['box_width']
         sheet['F23'] = box['box_length']
         sheet['M16'] = box['box_quantity']
-        sheet['AR20'] = display['product']['weight']
-        sheet['AR21'] = display['product']['height']
-        sheet['AR22'] = display['product']['width']
-        sheet['AR23'] = display['product']['length']
-        sheet['AJ8'] = display['display_barcode']
-        sheet['AU8'] = display['display_quantity']
+        if response_display.status_code == 200:
+            sheet['AR20'] = display['product']['weight']
+            sheet['AR21'] = display['product']['height']
+            sheet['AR22'] = display['product']['width']
+            sheet['AR23'] = display['product']['length']
+            sheet['AJ8'] = display['display_barcode']
+            sheet['AU8'] = display['display_quantity']
 
         wb.save(temp_file_path)
 
@@ -61,3 +63,4 @@ def run_some_function(data):
 
         os.remove(temp_file_path)
     return encoded_files
+
