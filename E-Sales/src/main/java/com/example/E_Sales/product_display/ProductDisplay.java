@@ -21,15 +21,15 @@ public class ProductDisplay extends EntityId {
     @JoinColumn(name = "product_id")
     private Product product;
     @Column
-    private String barcode;
+    private String display_barcode;
     @Column
-    private String height;
+    private String display_height;
     @Column
-    private String width;
+    private String display_width;
     @Column
-    private String weight;
+    private String display_weight;
     @Column
-    private String length;
+    private String display_length;
     @Column
-    private Integer quantity;
+    private Integer display_quantity;
 }

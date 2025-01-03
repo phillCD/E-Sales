@@ -1,8 +1,15 @@
 package com.example.E_Sales.product;
 
 import lombok.AllArgsConstructor;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -36,5 +43,4 @@ public class ProductController {
     public ProductRepresentation.ProductResponse deleteProduct(@PathVariable Long id) {
         return ProductRepresentation.ProductResponse.fromEntity(service.deleteProduct(id));
     }
-
 }

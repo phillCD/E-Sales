@@ -21,15 +21,15 @@ public class ProductBox extends EntityId{
     @JoinColumn(name = "product_id")
     private Product product;
     @Column
-    private String barcode;
+    private String box_barcode;
     @Column
-    private String height;
+    private String box_height;
     @Column
-    private String width;
+    private String box_width;
     @Column
-    private String weight;
+    private String box_weight;
     @Column
-    private String length;
+    private String box_length;
     @Column
-    private Integer quantity;
+    private Integer box_quantity;
 }

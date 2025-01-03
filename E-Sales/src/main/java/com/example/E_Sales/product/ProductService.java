@@ -24,6 +24,11 @@ public class ProductService {
     public Product createProduct(ProductRepresentation.ProductCreate entity) {
         return repository.save(new Product(
                 entity.getName(),
+                entity.getReference(),
+                entity.getBrand(),
+                entity.getNcm(),
+                entity.getCest(),
+                entity.getIpi(),
                 entity.getBarcode(),
                 entity.getHeight(),
                 entity.getWidth(),

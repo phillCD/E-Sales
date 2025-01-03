@@ -19,6 +19,9 @@ services:
     container_name: frontend-container
     depends_on:
       - backend
+    volumes:
+      - ./E-Sales Front-End/e-sales-frontend:/app
+      - /app/node_modules
 
   database:
     image: postgres:17

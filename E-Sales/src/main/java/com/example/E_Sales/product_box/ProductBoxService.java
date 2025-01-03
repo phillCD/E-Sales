@@ -22,15 +22,19 @@ public class ProductBoxService {
         return productBoxRepository.findById(id).orElse(null);
     }
 
+    public ProductBox getProductBoxByProductId(Long id) {
+        return productBoxRepository.findByProductId(id).orElse(null);
+    }
+
     public ProductBox createProductBox(ProductBoxRepresentation.ProductBoxCreate entity) {
         return productBoxRepository.save(new ProductBox(
                 entity.getProduct(),
-                entity.getBarcode(),
-                entity.getHeight(),
-                entity.getWidth(),
-                entity.getWeight(),
-                entity.getLength(),
-                entity.getQuantity()
+                entity.getBox_barcode(),
+                entity.getBox_height(),
+                entity.getBox_width(),
+                entity.getBox_weight(),
+                entity.getBox_length(),
+                entity.getBox_quantity()
         ));
     }
 

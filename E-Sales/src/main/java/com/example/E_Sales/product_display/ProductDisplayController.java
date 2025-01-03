@@ -21,6 +21,11 @@ public class ProductDisplayController {
         return ProductDisplayRepresentation.ProductDisplayResponse.fromEntity(service.getProductDisplayById(id));
     }
 
+    @GetMapping("product/{id}")
+    public ProductDisplayRepresentation.ProductDisplayResponse getProductDisplayByProductId(@PathVariable Long id) {
+        return ProductDisplayRepresentation.ProductDisplayResponse.fromEntity(service.getProductDisplayByProductId(id));
+    }
+
     @PostMapping
     public ProductDisplayRepresentation.ProductDisplayResponse createProductDisplay(@RequestBody ProductDisplayRepresentation.ProductDisplayCreate productDisplayCreate) {
         return ProductDisplayRepresentation.ProductDisplayResponse.fromEntity(service.createProductDisplay(productDisplayCreate));

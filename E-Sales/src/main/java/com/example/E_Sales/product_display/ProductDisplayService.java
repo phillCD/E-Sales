@@ -21,15 +21,19 @@ public class ProductDisplayService {
         return productDisplayRepository.findById(id).orElse(null);
     }
 
+    public ProductDisplay getProductDisplayByProductId(Long id) {
+        return productDisplayRepository.findByProductId(id).orElse(null);
+    }
+
     public ProductDisplay createProductDisplay(ProductDisplayRepresentation.ProductDisplayCreate entity) {
         return productDisplayRepository.save(new ProductDisplay(
                 entity.getProduct(),
-                entity.getBarcode(),
-                entity.getHeight(),
-                entity.getWidth(),
-                entity.getWeight(),
-                entity.getLength(),
-                entity.getQuantity()
+                entity.getDisplay_barcode(),
+                entity.getDisplay_height(),
+                entity.getDisplay_width(),
+                entity.getDisplay_weight(),
+                entity.getDisplay_length(),
+                entity.getDisplay_quantity()
         ));
     }
 

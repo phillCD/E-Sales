@@ -6,7 +6,9 @@ WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package.json .
-COPY package-lock.json .
+
+# Remove node_modules if it exists
+RUN rm -rf node_modules
 
 # Install dependencies
 RUN npm install

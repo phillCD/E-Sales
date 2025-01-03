@@ -12,7 +12,7 @@ public interface BuyerRepresentation {
     @NoArgsConstructor
     class BuyerCreate {
         private String name;
-        private String pythonScript;
+        private byte[] pythonScript;
         private String email;
         private String cnpj;
     }
@@ -23,7 +23,7 @@ public interface BuyerRepresentation {
     @NoArgsConstructor
     class BuyerUpdate {
         private String name;
-        private String pythonScript;
+        private byte[] pythonScript;
         private String email;
         private String cnpj;
     }
@@ -33,13 +33,15 @@ public interface BuyerRepresentation {
     @AllArgsConstructor
     @NoArgsConstructor
     class BuyerResponse {
+        private Long id;
         private String name;
-        private String pythonScript;
+        private byte[] pythonScript;
         private String email;
         private String cnpj;
 
         public static BuyerResponse fromEntity(Buyer buyer) {
             return BuyerResponse.builder()
+                    .id(buyer.getId())
                     .name(buyer.getName())
                     .pythonScript(buyer.getPythonScript())
                     .email(buyer.getEmail())

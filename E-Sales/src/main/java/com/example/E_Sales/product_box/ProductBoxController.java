@@ -21,6 +21,11 @@ public class ProductBoxController {
         return ProductBoxRepresentation.ProductBoxResponse.fromEntity(service.getProductBoxById(id));
     }
 
+    @GetMapping("product/{id}")
+    public ProductBoxRepresentation.ProductBoxResponse getProductBoxByProductId(@PathVariable Long id) {
+        return ProductBoxRepresentation.ProductBoxResponse.fromEntity(service.getProductBoxByProductId(id));
+    }
+
     @PostMapping
     public ProductBoxRepresentation.ProductBoxResponse createProductBox(@RequestBody ProductBoxRepresentation.ProductBoxCreate productBoxCreate) {
         return ProductBoxRepresentation.ProductBoxResponse.fromEntity(service.createProductBox(productBoxCreate));

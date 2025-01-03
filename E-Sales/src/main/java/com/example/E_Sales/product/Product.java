@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @AllArgsConstructor
@@ -16,6 +17,16 @@ import lombok.Setter;
 public class Product extends EntityId {
     @Column
     private String name;
+    @Column
+    private String reference;
+    @Column
+    private String brand;
+    @Column
+    private String ncm;
+    @Column
+    private String cest;
+    @Column
+    private String ipi;
     @Column
     private String barcode;
     @Column

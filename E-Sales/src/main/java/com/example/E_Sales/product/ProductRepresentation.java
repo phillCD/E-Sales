@@ -12,6 +12,11 @@ public interface ProductRepresentation {
     @NoArgsConstructor
     class ProductCreate {
         private String name;
+        private String reference;
+        private String brand;
+        private String ncm;
+        private String cest;
+        private String ipi;
         private String barcode;
         private String height;
         private String width;
@@ -26,6 +31,11 @@ public interface ProductRepresentation {
     @NoArgsConstructor
     class ProductUpdate {
         private String name;
+        private String reference;
+        private String brand;
+        private String ncm;
+        private String cest;
+        private String ipi;
         private String barcode;
         private String height;
         private String width;
@@ -39,7 +49,13 @@ public interface ProductRepresentation {
     @AllArgsConstructor
     @NoArgsConstructor
     class ProductResponse {
+        private Long id;
         private String name;
+        private String reference;
+        private String brand;
+        private String ncm;
+        private String cest;
+        private String ipi;
         private String barcode;
         private String height;
         private String width;
@@ -49,7 +65,13 @@ public interface ProductRepresentation {
 
         public static ProductResponse fromEntity(Product product) {
             return ProductResponse.builder()
+                    .id(product.getId())
                     .name(product.getName())
+                    .reference(product.getReference())
+                    .brand(product.getBrand())
+                    .ncm(product.getNcm())
+                    .cest(product.getCest())
+                    .ipi(product.getIpi())
                     .barcode(product.getBarcode())
                     .height(product.getHeight())
                     .width(product.getWidth())

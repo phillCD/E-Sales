@@ -13,12 +13,12 @@ public interface ProductBoxRepresentation {
     @NoArgsConstructor
     class ProductBoxCreate {
         private Product product;
-        private String barcode;
-        private String height;
-        private String width;
-        private String weight;
-        private String length;
-        private Integer quantity;
+        private String box_barcode;
+        private String box_height;
+        private String box_width;
+        private String box_weight;
+        private String box_length;
+        private Integer box_quantity;
     }
 
     @Data
@@ -27,12 +27,12 @@ public interface ProductBoxRepresentation {
     @NoArgsConstructor
     class ProductBoxUpdate {
         private Product product;
-        private String barcode;
-        private String height;
-        private String width;
-        private String weight;
-        private String length;
-        private Integer quantity;
+        private String box_barcode;
+        private String box_height;
+        private String box_width;
+        private String box_weight;
+        private String box_length;
+        private Integer box_quantity;
     }
 
     @Data
@@ -41,22 +41,22 @@ public interface ProductBoxRepresentation {
     @NoArgsConstructor
     class ProductBoxResponse {
         private Product product;
-        private String barcode;
-        private String height;
-        private String width;
-        private String weight;
-        private String length;
-        private Integer quantity;
+        private String box_barcode;
+        private String box_height;
+        private String box_width;
+        private String box_weight;
+        private String box_length;
+        private Integer box_quantity;
 
         public static ProductBoxResponse fromEntity(ProductBox productBox) {
             return ProductBoxResponse.builder()
                     .product(productBox.getProduct())
-                    .barcode(productBox.getBarcode())
-                    .height(productBox.getHeight())
-                    .width(productBox.getWidth())
-                    .weight(productBox.getWeight())
-                    .length(productBox.getLength())
-                    .quantity(productBox.getQuantity())
+                    .box_barcode(productBox.getBox_barcode())
+                    .box_height(productBox.getBox_height())
+                    .box_width(productBox.getBox_width())
+                    .box_weight(productBox.getBox_weight())
+                    .box_length(productBox.getBox_length())
+                    .box_quantity(productBox.getBox_quantity())
                     .build();
         }
     }

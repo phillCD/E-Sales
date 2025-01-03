@@ -13,12 +13,12 @@ public interface ProductDisplayRepresentation {
     @NoArgsConstructor
     class ProductDisplayCreate {
         private Product product;
-        private String barcode;
-        private String height;
-        private String width;
-        private String weight;
-        private String length;
-        private Integer quantity;
+        private String display_barcode;
+        private String display_height;
+        private String display_width;
+        private String display_weight;
+        private String display_length;
+        private Integer display_quantity;
     }
 
     @Data
@@ -27,12 +27,12 @@ public interface ProductDisplayRepresentation {
     @NoArgsConstructor
     class ProductDisplayUpdate {
         private Product product;
-        private String barcode;
-        private String height;
-        private String width;
-        private String weight;
-        private String length;
-        private Integer quantity;
+        private String display_barcode;
+        private String display_height;
+        private String display_width;
+        private String display_weight;
+        private String display_length;
+        private Integer display_quantity;
     }
 
     @Data
@@ -41,22 +41,22 @@ public interface ProductDisplayRepresentation {
     @NoArgsConstructor
     class ProductDisplayResponse {
         private Product product;
-        private String barcode;
-        private String height;
-        private String width;
-        private String weight;
-        private String length;
-        private Integer quantity;
+        private String display_barcode;
+        private String display_height;
+        private String display_width;
+        private String display_weight;
+        private String display_length;
+        private Integer display_quantity;
 
         public static ProductDisplayResponse fromEntity(ProductDisplay productDisplay) {
             return ProductDisplayResponse.builder()
                     .product(productDisplay.getProduct())
-                    .barcode(productDisplay.getBarcode())
-                    .height(productDisplay.getHeight())
-                    .width(productDisplay.getWidth())
-                    .weight(productDisplay.getWeight())
-                    .length(productDisplay.getLength())
-                    .quantity(productDisplay.getQuantity())
+                    .display_barcode(productDisplay.getDisplay_barcode())
+                    .display_height(productDisplay.getDisplay_height())
+                    .display_width(productDisplay.getDisplay_width())
+                    .display_weight(productDisplay.getDisplay_weight())
+                    .display_length(productDisplay.getDisplay_length())
+                    .display_quantity(productDisplay.getDisplay_quantity())
                     .build();
         }
     }
